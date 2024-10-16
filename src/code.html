@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    
+    <script src="assets/js/color-modes.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Tracking Factory</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sticky-footer-navbar/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="css/qlik.css" rel="stylesheet">
+
+    <script src="qlik/qlik_embed.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  </head>
+
+
+  <body class="d-flex flex-column h-100">
+
+    <!-- SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="speedometer2" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+      </symbol>
+      <symbol id="tools" viewBox="0 0 16 16">
+        <path d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+      </symbol>
+      <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+      </symbol>
+      <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+      </symbol>
+      <symbol id="robot" viewBox="0 0 16 16">
+        <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
+        <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
+      </symbol>
+    </svg>
+  
+    <!-- Place for Logo -->
+    <div class="dropdown fixed-bottom-left">
+      <a class="navbar-brand" href="https://www.qlik.com">
+        <p>Power by</p>
+        <img src="img/Qlik Logo R - 2 Color Positive RGB.png"  width="150px" height="63px" >
+      </a>
+    </div>
+    
+    <!-- // Place for Qlik Answer  -->
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <svg class="bi flex-shrink-0 active" width="24" height="24"><use xlink:href="#robot"/></svg>
+        Question ?
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" style="--bs-modal-width: 900px;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Answers</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="qlik-embed-modal" id="qlik-embed-container6">
+                <qlik-embed                                          
+                  ui="ai/assistant"
+                  assistant-id="17d22602-b671-48c6-a472-14b0e1900f44"
+                  appearance="qlik-light"
+                  >
+                </qlik-embed>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img/tracking_factory_white.png" width="100px" height="36px">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> bi text-body-secondary flex-shrink-0 me-3-->
+                <a href="/" class="nav-link ">
+                  <!-- <svg class="bi flex-shrink-0 active" width="24" height="24"><use xlink:href="#speedometer2"/></svg> -->
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/predictive" class="nav-link">
+                  <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#tools"/></svg> -->
+                  Predictive Maintenance
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/code" class="nav-link active">
+                  <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#grid"/></svg> -->
+                  How-to
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" id="clearAll" href="#" role="button">Clear Filters</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active dropdown-toggle" href="#" id="botDropDown" role="button"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-auto-close="outside">
+                  Filters
+                </a>
+                <div class="dropdown-menu" style="--bs-dropdown-min-width: 100%;">
+                  <qlik-embed
+                  ui="analytics/selections"
+                  app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                  >
+                </qlik-embed> 
+                </div>
+              </li>
+            <li>
+            <form class="d-flex nav-link" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link active dropdown-toggle" href="#" id="botDropDown" role="button"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-auto-close="outside">
+                  <svg class="bi flex-shrink-0" width="24" height="24" ><use xlink:href="#people-circle"/></svg>
+                  Baptiste
+                </a>
+                <ul class="dropdown-menu text-small">
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Begin page content style="background-color:#F2F2F2;"-->
+
+    <main class="flex-shrink-0">
+      <div class="container">
+        <h1 class="pb-1">Easy to implement</h1>
+        <!-- Qlik Embed g-4 py-5 row-cols-1 row-cols-lg-5-->
+         <div class="qlik-embed-container" >
+
+
+          <!-- Exemple Full Qlik App -->
+          <!-- <div class="row">
+            <h2 class="mt-5">Full Qlik App</h2>
+            <div class="col-sm-8">
+              <div class="qlik-embed-home" id="qlik-embed-container1">
+                <qlik-embed
+                  ui="classic/app"
+                  app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                  sheet-id="e3c4c2cf-6526-4e1e-9b95-dd34589f8aee"
+                  >
+                </qlik-embed> 
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div>
+                <pre><code>
+&lt;qlik-embed
+ui="classic/app"
+app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+sheet-id="e3c4c2cf-6526-4e1e-9b95-dd34589f8aee"
+&gt;
+&lt;/qlik-embed&gt; 
+              </code></pre>
+              </div>
+            </div>   
+
+          </div> -->
+
+          <!-- Exemple 2 Existing chart -->
+          <div class="row">
+            <h2 class="pb-2">How to embed an existing Qlik Chart</h2>
+            <div class="col-sm-7">
+              <div class="qlik-embed-example" id="qlik-embed-container2">
+                <qlik-embed
+                ui="analytics/chart"
+                app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                object-id="asRPu"
+                  >
+                </qlik-embed> 
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="code-example">
+                <pre><code class="lang-html" data-lang="html">
+&lt;qlik-embed
+ui="analytics/chart"
+app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+object-id="asRPu"
+&gt;
+&lt;/qlik-embed&gt; 
+              </code></pre>
+              </div>
+            </div>   
+          </div>
+
+          <!-- Exemple 3 Chart On The fly -->
+          <div class="row">
+            <h2 class="pb-2">How to create a Qlik Chart On The Fly</h2>
+            <div class="col-sm-7">
+              <div class="qlik-embed-example" id="qlik-embed-container2">
+                <qlik-embed
+                  id = "onthefly"
+                  ui="analytics/chart"
+                  app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                  type="barchart"
+                  dimensions='["[Machine Name]"]'
+                  measures='["[% Scrap]"]'
+                  >
+                </qlik-embed> 
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="row">
+                <select class="form-select" id="dimDrop" required>
+                  <option value="">Dimension</option>
+                  <option>Machine Name</option>                  
+                  <option>Machine Age</option>
+                  <option>Work Shift</option>
+                  <option>Production Month Year</option>
+                </select>
+                <select class="form-select" id="measureDrop" required>
+                  <option value="">Measure</option>
+                  <option>% Scrap</option>
+                  <option>Avg Cycle Time</option>
+                  <option>N. Parts Produced</option>
+                </select>
+                <select class="form-select" id="chartDrop" required>
+                  <option value="">Chart options</option>
+                  <option>barchart</option>
+                  <option>linechart</option>
+                  <option>piechart</option>
+                  <option>table</option>
+                </select>
+                <div class="code-example">
+                  <pre><code id="ontheflyCode" style="text-wrap: wrap;">
+&lt;qlik-embed
+id = "onthefly"
+ui="analytics/chart"
+app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+type="barchart"
+dimensions='["[Machine Name]"]'
+measures='["[% Scrap]"]'
+&gt;
+&lt;/qlik-embed&gt; 
+                </code></pre>
+                </div>
+              </div>
+            </div>   
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="container">
+        <span class="text-body-secondary">Tracking Factory Software, Powered by Qlik</span>
+      </div>
+    </footer>
+   
+  </body>
+
+  <script src="qlik/qlikCode.js"></script>
+
+</html>
