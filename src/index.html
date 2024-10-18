@@ -206,15 +206,22 @@
                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Access to Data</h3>
                     <p> Direct access to export and static reporting</p>
                     <div class="row"> 
-                      <div class="col-6"> 
-                        <a href="#" class="btn btn-outline-dark btn-sm">Send Report</a>
+                      <div class="sub-container col-3"> 
+                        <button id="exportSheet" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Report</button>
+                      </div>
+                      <!-- Export PNG -->
+                      <div class="sub-container col-3">
+                        <button id="exportPNG" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Chart</button>
                       </div>
                       <!-- bouton pour export -->                       
-                      <div class="sub-container col-6">
-                        <div>
-                          <button id="exportData" class="btn btn-outline-dark btn-sm">Export data</button>
+                      <div class="sub-container col-3">
+                          <button id="exportData" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Data</button>
+                      </div>
+                      <div class="sub-container col-3">
+                      <!-- <div id="loader" class="loader" style="display:none;"></div> -->
+                        <div id="loader" class="spinner-border" role="status" style="display:none;">
+                          <span class="visually-hidden">Loading...</span>
                         </div>
-                        <div id="loader" class="loader" style="display:none;"></div>
                       </div>
                     </div>
 
@@ -333,9 +340,9 @@
             <!-- Form -->
              
             <h2 class="pb-2 border-bottom">Maintenance task shortcut </h2>
-            <div class="qlik-embed-home">
+            <div class="qlik-embed-container">
               <div class="row ">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                   <label for="machine" class="form-label">Machine</label>
                   <select class="form-select" id="machineDrop" required>
                     <option value="">Choose...</option>
@@ -349,7 +356,7 @@
                     Please select a valid machine.
                   </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                   <label for="shift" class="form-label">Shift</label>
                   <select class="form-select" id="shiftDrop" required>
                     <option value="">Choose...</option>
@@ -364,10 +371,21 @@
                 <div class="col-sm-2">
                   <label for="shift" class="form-label">Priority</label>
                   <select class="form-select" id="priorityDrop" required>
-                    <option>Critical</option>
-                    <option>High</option>
-                    <option>Normal</option>
-                    <option selected>Best effort</option>
+                    <option value="text-bg-danger">Critical</option>
+                    <option value="text-bg-warning">High</option>
+                    <option value="text-bg-info">Standard</option>
+                    <option value="text-bg-success" selected>Best effort</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid priority.
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <label for="shift" class="form-label">Type</label>
+                  <select class="form-select" id="typeDrop" required>
+                    <option value="text-bg-warning" selected>Maintenance</option>
+                    <option value="text-bg-danger">Safety</option>
+                    <option value="text-bg-info">Quality</option>
                   </select>
                   <div class="invalid-feedback">
                     Please select a valid priority.
@@ -391,6 +409,46 @@
                     </div>
                 </div>
               </div>
+
+              <!-- Table -->
+              <div class="col-sm-12" >
+                <h3 class="pb-3">Current Backlog</h3>
+                <table class="table table-striped" id="tasksTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Tasks</th>
+                      <th scope="col">Machine</th>
+                      <th scope="col">Shift</th>
+                      <th scope="col">Priority</th>
+                      <th scope="col">Type</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tasksTableBody">
+                    <tr>
+                      <td>Checking lubrication levels</td>
+                      <td>Machine 3</td>
+                      <td>Shift 2</td>
+                      <td><span class="badge text-bg-info">Standard</span></td>
+                      <td><span class="badge text-bg-info">Quality</span></td>
+                    </tr>
+                    <tr>
+                      <td>Cleaning Rotors</td>
+                      <td>Machine 1</td>
+                      <td>Shift 1</td>
+                      <td><span class="badge text-bg-info">Standard</span></td>
+                      <td><span class="badge text-bg-warning">Maintenance</span></td>
+                    </tr>
+                    <tr>
+                      <td>Verify safety equipment</td>
+                      <td>Machine 1</td>
+                      <td>Shift 3</td>
+                      <td><span class="badge text-bg-warning">High</span></td>
+                      <td><span class="badge text-bg-danger">Safety</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
             </div>
             <!-- Rnd Form -->
 
@@ -398,9 +456,7 @@
         </div>
         <!-- Qlik Embed g-4 py-5 row-cols-1 row-cols-lg-5-->
         <!-- <h2 class="mt-5">Maintenance task shortcut </h2> -->
-        <div class="col-sm-12" class="qlik-embed-container">
-          <iframe src="https://view.monday.com/embed/1651637511-27b0e3a23becd844be2c94ac797d5214?r=euc1" width=100% height=450></iframe>
-        </div>
+
       </div>
     </main>
 
@@ -419,12 +475,12 @@
         >
       </qlik-embed>
       <qlik-embed
-      ui="analytics/chart"
+      ui="analytics/sheet"
       app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
-      object-id="sjuMv"
-      id="qeDataExport"
+      object-id="7b547c56-caca-4988-aae7-f18b919f7597"
+      id="qeReport"
       >
-    </qlik-embed>  
+    </qlik-embed>
     </div>
     
   </body>
@@ -439,13 +495,21 @@
 
     await new Promise(r => setTimeout(r, 2000));
 
-    const vizEl = document.getElementById("qeDataExport");
+    //Get chart metadata
+    const vizEl = document.getElementById("qe1");
     const appId = vizEl.getAttribute("app-id");
     const refApi = await vizEl.getRefApi();
     const doc = await refApi.getDoc();
     const theObject = await refApi.getObject();
     const objLayout = await theObject.getLayout();
 
+    //Get full dashboard metadata
+    const vizElSheet = document.getElementById("qeReport");
+    const appIdSheet = vizElSheet.getAttribute("app-id");
+    const refApiSheet = await vizElSheet.getRefApi();
+    const docSheet = await refApiSheet.getDoc();
+    const theObjectSheet = await refApiSheet.getObject();
+    const objLayoutSheet = await theObjectSheet.getLayout();
 
     const config =  await fetch("config").then((response) =>
         response.json()
@@ -462,10 +526,21 @@
 
     document.getElementById("exportData")
         .addEventListener("click", async function() {
-        exportData(doc, objLayout);
+        exportData(doc, objLayout,'.xlsx');
         });
 
-    async function exportData(doc, objLayout) {
+    document.getElementById("exportPNG")
+        .addEventListener("click", async function() {
+          exportData(doc, objLayout,'.png');
+        });
+
+    document.getElementById("exportSheet")
+        .addEventListener("click", async function() {
+          exportData(docSheet, objLayoutSheet,'.pdf');
+        });
+
+    // Export Data
+    async function exportData(doc, objLayout,format) {
         
         const tempB = await doc.createTemporaryBookmark(
         {
@@ -480,25 +555,82 @@
         }
         );
 
-        const reportPayload = {
-        type: "sense-data-1.0",
-        meta: {
-            exportDeadline:"P0Y0M0DT0H8M0S",
-            tags:["qlik-embed-download"]
-        },
-        senseDataTemplate: {
-            appId: appId,
-            id: objLayout.qInfo.qId,
-            selectionType: "temporaryBookmarkV2",
-            temporaryBookmarkV2: {
-            id: tempB
+        if(format == '.xlsx'){
+          var reportPayload = {
+          type: "sense-data-1.0",
+          meta: {
+              exportDeadline:"P0Y0M0DT0H8M0S",
+              tags:["qlik-embed-download"]
+          },
+          senseDataTemplate: {
+              appId: appId,
+              id: objLayout.qInfo.qId,
+              selectionType: "temporaryBookmarkV2",
+              temporaryBookmarkV2: {
+              id: tempB
+              }
+          },
+          output: {
+              outputId: "Chart_excel",
+              type:"xlsx"}
+          }
+          
+        } 
+        else if(format == '.png'){
+          var reportPayload = {
+            type: "sense-image-1.0",
+            senseImageTemplate: {
+              appId: appId,
+              visualization: {
+                id: objLayout.qInfo.qId,
+                type: "visualization",
+                widthPx: 650,
+                heightPx: 300
+              }
+              // ,temporaryBookmarkV2: {
+              // id: tempB
+              // }
+            },
+            output: {
+              outputId: "my-report-id",
+              type: "image",
+              imageOutput: {
+                outZoom: 1,
+                outDpi: 96,
+                outFormat: "png"
+              }
             }
-        },
-        output: {
-            outputId: "Chart_excel",
-            type:"xlsx"}
+          }
         }
-        
+        else if(format == '.pdf'){
+          var reportPayload= {
+            type: "sense-sheet-1.0",
+            senseSheetTemplate: {
+              appId: appId,
+              sheet: {
+                id: objLayout.qInfo.qId,
+              }
+              // ,temporaryBookmarkV2: {
+              // id: tempB
+              // }
+            },
+            output: {
+              outputId: "my-report-id",
+              type: "pdf",
+              pdfOutput: {
+                size: "A4",
+                orientation: "A",
+                imageRenderingDpi: 200,
+                resizeType: "autofit",
+                align: {
+                  horizontal: "center",
+                  vertical: "middle"
+                }
+              }
+            }
+          }
+        }
+
         try {
         showLoader();
         const reportReq = await reports.createReport(reportPayload);
@@ -512,12 +644,13 @@
         const downloadId = getDownloadId(wait.location);
         let dle = await tempContents.downloadTempFile(downloadId, {inline: 1});
         hideLoader();
-        fileSaver.saveAs(dle.data, `${createFileName(wait.filename)}.xlsx`);       
+        fileSaver.saveAs(dle.data, `${createFileName(wait.filename)}${format}`);       
         } catch (err) {
             console.log(err);
         }
     }
 
+    // Functions
     function showLoader() {
         document.getElementById("loader").style.display = "block";
     }
@@ -573,5 +706,4 @@
         return matches ? matches[1] : null;
     }
   </script>
-
 </html>
