@@ -40,20 +40,61 @@
     let sendButton = document.getElementById('factoryTaskAssignment');
     sendButton.addEventListener("click", async function () {
 
-     //retrieve values
-    let machine= document.getElementById('machineDrop').value;
-    let shift= document.getElementById('shiftDrop').value;
-    let message= document.getElementById('messageInput').value;
-    let priority= document.getElementById('priorityDrop').value;
+        //retrieve values
+        let machine= document.getElementById('machineDrop').value;
+        let shift= document.getElementById('shiftDrop').value;
+        let message= document.getElementById('messageInput').value;
+        let priority= document.getElementById('priorityDrop').options[document.getElementById('priorityDrop').selectedIndex].text;
+        let type= document.getElementById('typeDrop').options[document.getElementById('typeDrop').selectedIndex].text;
 
-     const res =  await fetch("runFactoryTaskAssignment", {
-         method: 'POST'
-         ,body: JSON.stringify({ "machine":machine, "shift":shift, "message":message, "priority":priority, 
-         })
-     }).then((response) =>
-                 console.log(response.json())
-         ); 
-     });
+        //  Add Row in the table
+        const taskTable = document.getElementById("tasksTableBody");
+        // Create a new row element
+        var newRow = document.createElement("tr");
+        var cell1 = document.createElement("td");
+        var cell2 = document.createElement("td");
+        var cell3 = document.createElement("td");
+        var cell4 = document.createElement("td");
+        var cell5 = document.createElement("td");
+        var spanType = document.createElement("span");
+        var spanPriority = document.createElement("span");
 
+        // Add text to cells
+        cell1.innerHTML = message;
+        cell2.innerHTML = machine;
+        cell3.innerHTML = shift;
+    
+        spanPriority.innerHTML = priority;
+        spanPriority.classList.add("badge");
+        spanPriority.classList.add(document.getElementById('priorityDrop').value);
+        cell4.appendChild(spanPriority);
+
+        spanType.innerHTML = type;
+        spanType.classList.add("badge");
+        spanType.classList.add(document.getElementById('typeDrop').value);
+        cell5.appendChild(spanType);
+
+        // Add cells to row
+        newRow.appendChild(cell1);
+        newRow.appendChild(cell2);
+        newRow.appendChild(cell3);
+        newRow.appendChild(cell4);
+        newRow.appendChild(cell5);
+
+        // Add row to table
+        taskTable.appendChild(newRow);
+        taskTable.classList.add("table");
+        taskTable.classList.add("table-striped");
+
+        const res =  await fetch("runFactoryTaskAssignment", {
+            method: 'POST'
+            ,body: JSON.stringify({ "machine":machine, "shift":shift, "message":message, "priority":priority, 
+            })
+        }).then((response) =>
+                    console.log(response.json())
+        ); 
+   
+
+    });
 
 })();
