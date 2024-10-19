@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" class="h-100" data-bs-theme="auto">
   <head>
-    
+
     <script src="assets/js/color-modes.js"></script>
 
 
@@ -18,7 +18,17 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="css/qlik.css" rel="stylesheet">
 
-    <script src="qlik/qlik_embed.js"></script>
+    <script
+      crossorigin="anonymous"
+      type="application/javascript"
+      src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
+      data-host="{{ TENANT_URL }}"
+      data-client-id="{{ OAUTH_CLIENT_ID }}"
+      data-redirect-uri="{{ REDIRECT_URI }}"
+      data-access-token-storage="session"
+      data-cross-site-cookies="true"
+      data-auto-redirect="true"
+    ></script>
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -48,7 +58,7 @@
         <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
       </symbol>
     </svg>
-  
+
     <!-- Place for Logo -->
     <div class="dropdown fixed-bottom-left">
       <a class="navbar-brand" href="https://www.qlik.com">
@@ -56,7 +66,7 @@
         <img src="img/Qlik Logo R - 2 Color Positive RGB.png"  width="150px" height="63px" >
       </a>
     </div>
-    
+
     <!-- // Place for Qlik Answer  -->
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
 
@@ -76,7 +86,7 @@
             </div>
             <div class="modal-body">
               <div class="qlik-embed-modal" id="qlik-embed-container6">
-                <qlik-embed                                          
+                <qlik-embed
                   ui="ai/assistant"
                   assistant-id="17d22602-b671-48c6-a472-14b0e1900f44"
                   appearance="qlik-light"
@@ -106,19 +116,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> bi text-body-secondary flex-shrink-0 me-3-->
-                <a href="/" class="nav-link ">
+                <a href="index.html" class="nav-link ">
                   <!-- <svg class="bi flex-shrink-0 active" width="24" height="24"><use xlink:href="#speedometer2"/></svg> -->
                   Home
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/predictive" class="nav-link">
+                <a href="predictive.html" class="nav-link">
                   <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#tools"/></svg> -->
                   Predictive Maintenance
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/code" class="nav-link active">
+                <a href="code.html" class="nav-link active">
                   <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#grid"/></svg> -->
                   How-to
                 </a>
@@ -138,7 +148,7 @@
                   ui="analytics/selections"
                   app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
                   >
-                </qlik-embed> 
+                </qlik-embed>
                 </div>
               </li>
             <li>
@@ -185,7 +195,7 @@
                   app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
                   sheet-id="e3c4c2cf-6526-4e1e-9b95-dd34589f8aee"
                   >
-                </qlik-embed> 
+                </qlik-embed>
               </div>
             </div>
             <div class="col-sm-4">
@@ -196,10 +206,10 @@ ui="classic/app"
 app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
 sheet-id="e3c4c2cf-6526-4e1e-9b95-dd34589f8aee"
 &gt;
-&lt;/qlik-embed&gt; 
+&lt;/qlik-embed&gt;
               </code></pre>
               </div>
-            </div>   
+            </div>
 
           </div> -->
 
@@ -213,7 +223,7 @@ sheet-id="e3c4c2cf-6526-4e1e-9b95-dd34589f8aee"
                 app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
                 object-id="asRPu"
                   >
-                </qlik-embed> 
+                </qlik-embed>
               </div>
             </div>
             <div class="col-sm-5">
@@ -224,10 +234,10 @@ ui="analytics/chart"
 app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
 object-id="asRPu"
 &gt;
-&lt;/qlik-embed&gt; 
+&lt;/qlik-embed&gt;
               </code></pre>
               </div>
-            </div>   
+            </div>
           </div>
 
           <!-- Exemple 3 Chart On The fly -->
@@ -243,14 +253,14 @@ object-id="asRPu"
                   dimensions='["[Machine Name]"]'
                   measures='["[% Scrap]"]'
                   >
-                </qlik-embed> 
+                </qlik-embed>
               </div>
             </div>
             <div class="col-sm-5">
               <div class="row">
                 <select class="form-select" id="dimDrop" required>
                   <option value="">Dimension</option>
-                  <option>Machine Name</option>                  
+                  <option>Machine Name</option>
                   <option>Machine Age</option>
                   <option>Work Shift</option>
                   <option>Production Month Year</option>
@@ -278,11 +288,11 @@ type="barchart"
 dimensions='["[Machine Name]"]'
 measures='["[% Scrap]"]'
 &gt;
-&lt;/qlik-embed&gt; 
+&lt;/qlik-embed&gt;
                 </code></pre>
                 </div>
               </div>
-            </div>   
+            </div>
           </div>
 
         </div>
@@ -294,7 +304,7 @@ measures='["[% Scrap]"]'
         <span class="text-body-secondary">Tracking Factory Software, Powered by Qlik</span>
       </div>
     </footer>
-   
+
   </body>
 
   <script src="qlik/qlikCode.js"></script>

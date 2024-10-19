@@ -3,16 +3,66 @@
   "version": "1.0.0",
   "description": "This is the part of the project to spin up the ERP with embedded analytics",
   "main": "server.js",
+  "engines": {
+    "parcel": "2.x"
+  },
+  "keywords": [
+    "qlik",
+    "nebula",
+    "embed",
+    "webcomponent",
+    "Insight",
+    "Advisor",
+    "mashup"
+  ],
+  "scripts": {
+    "security": "npm audit",
+    "dev": "parcel src/index.html",
+    "server": "parcel serve ./src/index.html --public-url / --dist-dir dist",
+    "prebuild": "npx rimraf build",
+    "live": "npx live-server dist",
+    "build": "rm -fr dist; parcel build ./src/index.html --dist-dir ./dist --public-url .",
+    "buildanalyzer": "rm -fr dist; parcel build ./src/index.html --dist-dir ./dist --public-url . --reporter @parcel/reporter-bundle-analyzer"
+  },
+  "author": "Giacomo Brioschi, Baptiste Durand, Vincent Legeard",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/compressor-brotli": "^2.12.0",
+    "@parcel/compressor-gzip": "^2.12.0",
+    "@parcel/config-default": "^2.12.0",
+    "@parcel/reporter-bundle-analyzer": "^2.12.0",
+    "@parcel/transformer-js": "^2.12.0",
+    "@parcel/transformer-sass": "^2.12.0",
+    "@popperjs/core": "^2.11.8",
+    "assert": "^2.1.0",
+    "bootstrap": "^5.3.3",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "feather-icons": "^4.29.2",
+    "https-browserify": "^1.0.0",
+    "live-server": "^1.2.0",
+    "os-browserify": "^0.3.0",
+    "parcel": "2.12.0",
+    "path-browserify": "^1.0.1",
+    "posthtml-expressions": "^1.11.4",
+    "posthtml-modules": "^0.9.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "string_decoder": "^1.3.0",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
+    "vm-browserify": "^1.1.2"
+  },
   "dependencies": {
-    "express": "^4.17.3",
+    "@qlik/api": "^1.22.0",
+    "@types/file-saver": "^2.0.7",
+    "dotenv": "^16.4.5",
+    "file-saver": "^2.0.5",
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
     "request": "^2.88.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "Giacomo Brioschi, Baptiste Durand",
-  "license": "ISC"
+  }
 }

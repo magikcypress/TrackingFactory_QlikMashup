@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" class="h-100" data-bs-theme="auto">
   <head>
-    
+
     <script src="assets/js/color-modes.js"></script>
 
 
@@ -18,7 +18,17 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="css/qlik.css" rel="stylesheet">
 
-    <script src="qlik/qlik_embed.js"></script>
+    <script
+      crossorigin="anonymous"
+      type="application/javascript"
+      src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
+      data-host="{{ TENANT_URL }}"
+      data-client-id="{{ OAUTH_CLIENT_ID }}"
+      data-redirect-uri="{{ REDIRECT_URI }}"
+      data-access-token-storage="session"
+      data-cross-site-cookies="true"
+      data-auto-redirect="true"
+    ></script>
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -49,7 +59,7 @@
       </symbol>
 
     </svg>
-    
+
 
     <!-- Place for Logo -->
     <div class="dropdown fixed-bottom-left">
@@ -58,7 +68,7 @@
         <img src="img/Qlik Logo R - 2 Color Positive RGB.png"  width="150px" height="63px" >
       </a>
     </div>
-    
+
 
     <!-- // Place for Qlik Answer  -->
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
@@ -79,7 +89,7 @@
             </div>
             <div class="modal-body">
               <div class="qlik-embed-modal" id="qlik-embed-container6">
-                <qlik-embed                                          
+                <qlik-embed
                   ui="ai/assistant"
                   assistant-id="17d22602-b671-48c6-a472-14b0e1900f44"
                   appearance="qlik-light"
@@ -109,19 +119,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> bi text-body-secondary flex-shrink-0 me-3-->
-                <a href="/" class="nav-link">
+                <a href="index.html" class="nav-link">
                   <!-- <svg class="bi flex-shrink-0 active" width="24" height="24"><use xlink:href="#speedometer2"/></svg> -->
                   Home
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/predictive" class="nav-link active">
+                <a href="predictive.html" class="nav-link active">
                   <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#tools"/></svg> -->
                   Predictive Maintenance
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/code" class="nav-link">
+                <a href="code.html" class="nav-link">
                   <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#grid"/></svg> -->
                   How-to
                 </a>
@@ -141,7 +151,7 @@
                   ui="analytics/selections"
                   app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
                   >
-                </qlik-embed> 
+                </qlik-embed>
                 </div>
               </li>
             <li>
@@ -191,7 +201,7 @@
         <span class="text-body-secondary">Tracking Factory Software, Powered by Qlik</span>
       </div>
     </footer>
-   
+
   </body>
 
   <script src="qlik/common_qlik_embed.js"></script>

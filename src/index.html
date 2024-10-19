@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" class="h-100" data-bs-theme="auto">
   <head>
-    
+
     <script src="assets/js/color-modes.js"></script>
 
 
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Tracking Factory</title>
+    <title>{{ PROJECT_NAME }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sticky-footer-navbar/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -18,7 +18,18 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="css/qlik.css" rel="stylesheet">
 
-    <script src="qlik/qlik_embed.js"></script>
+    <script
+      crossorigin="anonymous"
+      type="application/javascript"
+      src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
+      data-host="{{ TENANT_URL }}"
+      data-client-id="{{ OAUTH_CLIENT_ID }}"
+      data-redirect-uri="{{ REDIRECT_URI }}"
+      data-access-token-storage="session"
+      data-cross-site-cookies="true"
+      data-auto-redirect="true"
+    ></script>
+
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -48,7 +59,7 @@
         <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
       </symbol>
     </svg>
-    
+
 
     <!-- Place for Logo fixed-bottom-left width="150px" height="63px" -->
     <div class="dropdown fixed-bottom-left">
@@ -57,7 +68,7 @@
         <img src="img/Qlik Logo R - 2 Color Positive RGB.png" width="150px" height="63px" >
       </a>
     </div>
-    
+
     <!-- // Place for Qlik Answer  -->
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
 
@@ -77,9 +88,9 @@
             </div>
             <div class="modal-body">
               <div class="qlik-embed-modal" id="qlik-embed-container6">
-                <qlik-embed                                          
+                <qlik-embed
                   ui="ai/assistant"
-                  assistant-id="17d22602-b671-48c6-a472-14b0e1900f44"
+                  assistant-id="{{ ASSISTANT_ID }}"
                   appearance="qlik-light"
                   >
                 </qlik-embed>
@@ -107,19 +118,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> bi text-body-secondary flex-shrink-0 me-3-->
-                <a href="/" class="nav-link active">
+                <a href="index.html" class="nav-link active">
                   <!-- <svg class="bi flex-shrink-0 active" width="24" height="24"><use xlink:href="#speedometer2"/></svg> -->
                   Home
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/predictive" class="nav-link">
+                <a href="predictive.html" class="nav-link">
                   <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#tools"/></svg> -->
                   Predictive Maintenance
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/code" class="nav-link">
+                <a href="code.html" class="nav-link">
                   <!-- <svg class="bi flex-shrink-0" width="24" height="24"><use xlink:href="#grid"/></svg> -->
                   How-to
                 </a>
@@ -137,9 +148,9 @@
                 <div class="dropdown-menu" style="--bs-dropdown-min-width: 100%;">
                   <qlik-embed
                   ui="analytics/selections"
-                  app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                  app-id="{{ APP_ID }}"
                   >
-                </qlik-embed> 
+                </qlik-embed>
                 </div>
               </li>
             <li>
@@ -176,8 +187,8 @@
         <div class="container px-4 py-5" id="icon-grid">
           <!-- <h2 class="pb-2 border-bottom">Factory management home page</h2> -->
           <div class="row ">
-            <div class="col-sm-4"> 
-              <div class="row">   
+            <div class="col-sm-4">
+              <div class="row">
                 <div class="col d-flex align-items-start mt-3">
                   <svg class="bi text-body-secondary flex-shrink-0 me-2" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"/></svg>
                   <div>
@@ -186,7 +197,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row">  
+              <div class="row">
                 <!-- row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5 -->
                 <!-- <div class="col-sm-4">  -->
                 <div class="col d-flex align-items-start mt-2">
@@ -197,7 +208,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row">  
+              <div class="row">
                 <!-- row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5 -->
                 <!-- <div class="col-sm-4">  -->
                 <div class="col d-flex align-items-start mt-2">
@@ -205,15 +216,15 @@
                   <div>
                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Access to Data</h3>
                     <p> Direct access to export and static reporting</p>
-                    <div class="row"> 
-                      <div class="sub-container col-3"> 
+                    <div class="row">
+                      <div class="sub-container col-3">
                         <button id="exportSheet" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Report</button>
                       </div>
                       <!-- Export PNG -->
                       <div class="sub-container col-3">
                         <button id="exportPNG" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Chart</button>
                       </div>
-                      <!-- bouton pour export -->                       
+                      <!-- bouton pour export -->
                       <div class="sub-container col-3">
                           <button id="exportData" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Data</button>
                       </div>
@@ -229,19 +240,19 @@
                 </div>
               </div>
             </div>
- 
-            <div class="col-sm-8"> 
+
+            <div class="col-sm-8">
               <div class="qlik-embed-home-main" id="qlik-embed-container1">
                 <qlik-embed
                   ui="analytics/chart"
-                  app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                  app-id="{{ APP_ID }}"
                   object-id="pBKDLL"
                   id="qe1"
                   >
-                </qlik-embed> 
+                </qlik-embed>
               </div>
             </div>
-            
+
           </div>
 
           <!-- ici -->
@@ -260,11 +271,11 @@
                 <div class="qlik-embed-home card-img-top" id="qlik-embed-container1">
                   <qlik-embed
                     ui="analytics/chart"
-                    app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                    app-id="{{ APP_ID }}"
                     object-id="asRPu"
                     id="qe1"
                     >
-                  </qlik-embed> 
+                  </qlik-embed>
                 </div>
                 <div class="card-body">
                   <p class="card-text">
@@ -281,9 +292,9 @@
                           </div>
                           <div class="modal-body">
                             <div class="qlik-embed-modal-dashboard" id="qlik-embed-container6">
-                              <qlik-embed                                          
+                              <qlik-embed
                                 ui="analytics/sheet"
-                                app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                                app-id="{{ APP_ID }}"
                                 object-id="dcf349a4-a33f-4574-8816-fb7f0e0037d3"
                                 >
                               </qlik-embed>
@@ -306,10 +317,10 @@
                 <div class="qlik-embed-home card-img-top" id="qlik-embed-container2">
                   <qlik-embed
                     ui="analytics/chart"
-                    app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                    app-id="{{ APP_ID }}"
                     object-id="PtzrH"
                     >
-                  </qlik-embed> 
+                  </qlik-embed>
                 </div>
                 <div class="card-body">
                   <p class="card-text">
@@ -324,10 +335,10 @@
                 <div class="qlik-embed-home card-img-top" id="qlik-embed-container3">
                   <qlik-embed
                     ui="analytics/chart"
-                    app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                    app-id="{{ APP_ID }}"
                     object-id="EcUsS"
                     >
-                  </qlik-embed> 
+                  </qlik-embed>
                 </div>
                 <div class="card-body">
                   <p class="card-text">
@@ -338,7 +349,7 @@
             </div>
 
             <!-- Form -->
-             
+
             <h2 class="pb-2 border-bottom">Maintenance task shortcut </h2>
             <div class="qlik-embed-container">
               <div class="row ">
@@ -465,245 +476,27 @@
         <span class="text-body-secondary">Tracking Factory Software, Powered by Qlik</span>
       </div>
     </footer>
-    
+
     <div class="qlik-embed-home" id="qlik-embed-container1" style="display:none;">
       <qlik-embed
         ui="analytics/chart"
-        app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+        app-id="{{ APP_ID }}"
         object-id="cAZtKn"
         id="qeData"
         >
       </qlik-embed>
       <qlik-embed
       ui="analytics/sheet"
-      app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+      app-id="{{ APP_ID }}"
       object-id="7b547c56-caca-4988-aae7-f18b919f7597"
       id="qeReport"
       >
     </qlik-embed>
     </div>
-    
+
   </body>
 
   <script src="qlik/qlikForm.js"></script>
   <script src="qlik/qlikGetData.js"></script>
-
-  <!-- script Data Extract : Todo : to put in an external JS -->
-  <script type="module">
-    import { auth, qix, users, reports, tempContents } from "https://cdn.jsdelivr.net/npm/@qlik/api@1/index.min.js";
-    import fileSaver from 'https://cdn.jsdelivr.net/npm/file-saver@2.0.5/+esm'
-
-    await new Promise(r => setTimeout(r, 2000));
-
-    //Get chart metadata
-    const vizEl = document.getElementById("qe1");
-    const appId = vizEl.getAttribute("app-id");
-    const refApi = await vizEl.getRefApi();
-    const doc = await refApi.getDoc();
-    const theObject = await refApi.getObject();
-    const objLayout = await theObject.getLayout();
-
-    //Get full dashboard metadata
-    const vizElSheet = document.getElementById("qeReport");
-    const appIdSheet = vizElSheet.getAttribute("app-id");
-    const refApiSheet = await vizElSheet.getRefApi();
-    const docSheet = await refApiSheet.getDoc();
-    const theObjectSheet = await refApiSheet.getObject();
-    const objLayoutSheet = await theObjectSheet.getLayout();
-
-    const config =  await fetch("config").then((response) =>
-        response.json()
-    );
-
-    auth.setDefaultHostConfig({
-        host: config.tenantHostname,
-        // authType: "Oauth2",
-        clientId: config.oauthClient,
-        redirectUri: "https://127.0.0.1:1235/oauth_callback.html",
-        accessTokenStorage: "session",
-        autoRedirect: true,
-    });
-
-    document.getElementById("exportData")
-        .addEventListener("click", async function() {
-        exportData(doc, objLayout,'.xlsx');
-        });
-
-    document.getElementById("exportPNG")
-        .addEventListener("click", async function() {
-          exportData(doc, objLayout,'.png');
-        });
-
-    document.getElementById("exportSheet")
-        .addEventListener("click", async function() {
-          exportData(docSheet, objLayoutSheet,'.pdf');
-        });
-
-    // Export Data
-    async function exportData(doc, objLayout,format) {
-        
-        const tempB = await doc.createTemporaryBookmark(
-        {
-            qOptions: {
-            qIncludeAllPatches: true,
-            qIncludeVariables: true,
-            qSaveVariableExpressions: true
-            },
-            qObjectIdsToPatch: [ 
-            objLayout.qInfo.qId
-            ]
-        }
-        );
-
-        if(format == '.xlsx'){
-          var reportPayload = {
-          type: "sense-data-1.0",
-          meta: {
-              exportDeadline:"P0Y0M0DT0H8M0S",
-              tags:["qlik-embed-download"]
-          },
-          senseDataTemplate: {
-              appId: appId,
-              id: objLayout.qInfo.qId,
-              selectionType: "temporaryBookmarkV2",
-              temporaryBookmarkV2: {
-              id: tempB
-              }
-          },
-          output: {
-              outputId: "Chart_excel",
-              type:"xlsx"}
-          }
-          
-        } 
-        else if(format == '.png'){
-          var reportPayload = {
-            type: "sense-image-1.0",
-            senseImageTemplate: {
-              appId: appId,
-              visualization: {
-                id: objLayout.qInfo.qId,
-                type: "visualization",
-                widthPx: 650,
-                heightPx: 300
-              }
-              // ,temporaryBookmarkV2: {
-              // id: tempB
-              // }
-            },
-            output: {
-              outputId: "my-report-id",
-              type: "image",
-              imageOutput: {
-                outZoom: 1,
-                outDpi: 96,
-                outFormat: "png"
-              }
-            }
-          }
-        }
-        else if(format == '.pdf'){
-          var reportPayload= {
-            type: "sense-sheet-1.0",
-            senseSheetTemplate: {
-              appId: appId,
-              sheet: {
-                id: objLayout.qInfo.qId,
-              }
-              // ,temporaryBookmarkV2: {
-              // id: tempB
-              // }
-            },
-            output: {
-              outputId: "my-report-id",
-              type: "pdf",
-              pdfOutput: {
-                size: "A4",
-                orientation: "A",
-                imageRenderingDpi: 200,
-                resizeType: "autofit",
-                align: {
-                  horizontal: "center",
-                  vertical: "middle"
-                }
-              }
-            }
-          }
-        }
-
-        try {
-        showLoader();
-        const reportReq = await reports.createReport(reportPayload);
-        let statusURL = reportReq.headers.get("content-location");
-        const reportId = extractReportId(statusURL);
-        if (!reportId) {
-            throw new Error("Invalid report ID");
-        }
-        // Set interval to check status every 5 seconds
-        const wait = await waitUntil(reportId);
-        const downloadId = getDownloadId(wait.location);
-        let dle = await tempContents.downloadTempFile(downloadId, {inline: 1});
-        hideLoader();
-        fileSaver.saveAs(dle.data, `${createFileName(wait.filename)}${format}`);       
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    // Functions
-    function showLoader() {
-        document.getElementById("loader").style.display = "block";
-    }
-
-    function hideLoader() {
-        document.getElementById("loader").style.display = "none";
-    }
-    // Function to create a filename
-    function createFileName(additionalInfo) {
-        const currentDateTime = new Date().toISOString();
-        return `${additionalInfo}-${currentDateTime}`;
-    }
-
-    async function waitUntil(reportId) {
-        return await new Promise(resolve => {
-        const interval = setInterval(() => {
-            return reports.getReportStatus(reportId).
-            then((status) => {
-                console.log(status);
-                console.log(`Current status: ${status.data.status}`);
-                if (status.data.status === "done") {
-                console.log(status);
-                let result = { 
-                    location: status.data.results[0].location,
-                    filename: status.data.results[0].outputId,
-                };
-                clearInterval(interval);
-                resolve(result);
-                
-                };
-            });
-            
-        }, 5000);
-        });
-    }
-
-    function extractReportId(url) {
-        const regex = /reports\/(.*?)\/status/;
-        const match = url.match(regex);
-        if (match && match[1]) {
-        return match[1];
-        }
-        return null;
-    }
-
-    function getDownloadId(url) {
-        // Define a regular expression to match the last part of the path
-        const regex = /\/([^\/?#]+)(?:[?#]|$)/;
-
-        // Execute the regular expression on the URL
-        const matches = url.match(regex);
-        // Return the matched string, or null if no match is found
-        return matches ? matches[1] : null;
-    }
-  </script>
+  <script type="module" src="qlik/qlik_export.js"></script>
 </html>
