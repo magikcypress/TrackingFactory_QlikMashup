@@ -1,5 +1,12 @@
-import { auth, qix, users, reports, tempContents } from "https://cdn.jsdelivr.net/npm/@qlik/api@1/index.min.js";
-import fileSaver from 'https://cdn.jsdelivr.net/npm/file-saver@2.0.5/+esm'
+import dotenv from 'dotenv';
+dotenv.config({ path: '../../.env' });
+
+const tenantUrl = process.env.TENANT_URL;
+const oauthClient = process.env.OAUTH_CLIENT_ID;
+const redirectUri = process.env.REDIRECT_URI;
+
+import { auth, reports, tempContents, reports, tempContents } from "@qlik/api";
+import { saveAs } from 'file-saver';
 
 const vizEl = document.getElementById("qeData");
 const appId = vizEl.getAttribute("app-id");
@@ -9,10 +16,10 @@ const theObject = await refApi.getObject();
 const objLayout = await theObject.getLayout();
 
 auth.setDefaultHostConfig({
-    host: "qfp.eu.qlikcloud.com",
-    // authType: "Oauth2",
-    clientId: "f50b3042e90bcdd929be4a957af91fb1",
-    redirectUri: "https://127.0.0.1:1235/oauth_callback.html",
+    host: tenantUrl,
+    authType: "Oauth2",
+    clientId: oauthClient,
+    redirectUri: redirectUri,
     accessTokenStorage: "session",
     autoRedirect: true,
 });
@@ -23,7 +30,7 @@ document.getElementById("exportData")
     });
 
 async function exportData(doc, objLayout) {
-    
+
     const tempB = await doc.createTemporaryBookmark(
     {
         qOptions: {
@@ -31,7 +38,7 @@ async function exportData(doc, objLayout) {
         qIncludeVariables: true,
         qSaveVariableExpressions: true
         },
-        qObjectIdsToPatch: [ 
+        qObjectIdsToPatch: [
         objLayout.qInfo.qId
         ]
     }
@@ -55,7 +62,7 @@ async function exportData(doc, objLayout) {
         outputId: "Chart_excel",
         type:"xlsx"}
     }
-    
+
     try {
     showLoader();
     const reportReq = await reports.createReport(reportPayload);
@@ -69,7 +76,7 @@ async function exportData(doc, objLayout) {
     const downloadId = getDownloadId(wait.location);
     let dle = await tempContents.downloadTempFile(downloadId, {inline: 1});
     hideLoader();
-    fileSaver.saveAs(dle.data, `${createFileName(wait.filename)}.xlsx`);       
+    saveAs.saveAs(dle.data, `${createFileName(wait.filename)}.xlsx`);
     } catch (err) {
         console.log(err);
     }
@@ -97,16 +104,16 @@ async function waitUntil(reportId) {
             console.log(`Current status: ${status.data.status}`);
             if (status.data.status === "done") {
             console.log(status);
-            let result = { 
+            let result = {
                 location: status.data.results[0].location,
                 filename: status.data.results[0].outputId,
             };
             clearInterval(interval);
             resolve(result);
-            
+
             };
         });
-        
+
     }, 5000);
     });
 }
@@ -129,4 +136,4 @@ function getDownloadId(url) {
     // Return the matched string, or null if no match is found
     return matches ? matches[1] : null;
 }
-  
+

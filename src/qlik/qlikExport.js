@@ -30,7 +30,7 @@ import { saveAs } from 'file-saver';
 
   auth.setDefaultHostConfig({
       host: tenantUrl,
-      authType: "Oauth2",
+      // authType: "Oauth2",
       clientId: oauthClient,
       redirectUri: redirectUri,
       accessTokenStorage: "session",

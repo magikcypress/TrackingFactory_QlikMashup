@@ -7,8 +7,8 @@
      const refApi = await embeddedObject.getRefApi();
      const doc = await refApi.getDoc();
      // For checking available Prototypes :
-     console.log("Doc");
-     console.log(doc);
+    //  console.log("Doc");
+    //  console.log(doc);
 
      // 1. addbutton listener : ClearAll
      let clearButton = document.getElementById('clearAll');

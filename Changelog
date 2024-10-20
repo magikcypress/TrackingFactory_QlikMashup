@@ -5,3 +5,4 @@
 - Move Export script
 - Update script embed, replace js script from html
 - Add .env file for secure config variable
+- Add user session top-right

@@ -1,6 +1,5 @@
 (async () => {
 
-    console.log("test");
     await new Promise(r => setTimeout(r, 2000));
 
      /** Access to the App Model **/
@@ -22,13 +21,13 @@
          console.log("Clear the selections");
          doc.clearAll();
      });
- 
+
     //2. On the fly chart
     //add the sheet references to a dropdown list
     let ddim = document.getElementById('dimDrop');
     let dmeasure = document.getElementById('measureDrop');
     let dchart = document.getElementById('chartDrop');
-    
+
     //add a listener to change the object-id property in the qlik-embed element
     ddim.addEventListener("change", function() {
     if (ddim.selectedIndex > 0)
@@ -41,7 +40,7 @@
        //codeExample.innerHTML = code;
     }
     });
-          
+
     //add a listener to change the object-id property in the qlik-embed element
     dmeasure.addEventListener("change", function() {
     if (dmeasure.selectedIndex > 0)
