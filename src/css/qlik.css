@@ -38,7 +38,7 @@ body {
 	margin-bottom: 0rem !important;
   background-color:  #274D5A !important;
   }
-  
+
 .curr-selections {
 	transition: all 1s linear;
   }
@@ -46,7 +46,7 @@ body {
 .hidden {
 	display: none;
   }
-  
+
 .visuallyhidden {
 	opacity: 0;
 }
@@ -304,7 +304,7 @@ p {
 }
 
 .pb-1 {
-  margin-top: 3rem!important;  
+  margin-top: 3rem!important;
   margin-bottom: 0.5rem!important;
   padding-bottom: 0.5rem!important;
   color: rgb(100, 99, 99)!important;
@@ -449,4 +449,17 @@ p {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.qlik-embed-generate {
+  height: 250px;
+}
+
+.expandable-input {
+  width: 200px;
+  transition: width 0.3s ease; /* Animation pour rendre la transition plus fluide */
+}
+
+.expandable-input:focus {
+  width: 700px; /* Taille plus grande au clic */
 }

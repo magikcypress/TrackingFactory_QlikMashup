@@ -20,7 +20,6 @@ import { auth, users } from "@qlik/api";
   });
 
   const username = await users.getMyUser(auth);
-  console.log(username.data.name)
 
   const userName = username.data.name;
   document.getElementById('userName').textContent = userName;

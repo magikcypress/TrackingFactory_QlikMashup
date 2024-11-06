@@ -1,5 +1,11 @@
 # Changelog
 
+Nov 11, 2024
+
+- Add openAI request for analytics chart Qlik Sense generator
+
+Oct 20, 2024
+
 - Add README & LICENSE
 - Change Framework express to apps bundler parcel js
 - Move Export script

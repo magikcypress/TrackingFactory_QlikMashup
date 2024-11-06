@@ -29,7 +29,9 @@
       data-cross-site-cookies="true"
       data-auto-redirect="true"
     ></script>
+
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   </head>
 
@@ -103,6 +105,7 @@
       </div>
     </div>
 
+
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -136,10 +139,10 @@
               </li>
             </ul>
             <ul class="navbar-nav d-flex">
-              <li class="nav-item">
+              <li class="nav-item pt-2">
                 <a class="nav-link active" aria-current="page" id="clearAll" href="#" role="button">Clear Filters</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item pt-2">
                 <a class="nav-link active dropdown-toggle" href="#" id="botDropDown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-auto-close="outside">
                   Filters
@@ -147,24 +150,23 @@
                 <div class="dropdown-menu" style="--bs-dropdown-min-width: 100%;">
                   <qlik-embed
                   ui="analytics/selections"
-                  app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
+                  app-id="{{ APP_ID }}"
                   >
                 </qlik-embed>
                 </div>
               </li>
-            <li>
-            <form class="d-flex nav-link" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            </li>
-              <li class="nav-item">
-                <a class="nav-link active dropdown-toggle" href="#" id="botDropDown" role="button"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-auto-close="outside">
+              <li class="dropdown pt-2">
+                <form class="d-flex nav-link" role="search">
+                  <input class="form-control me-2 expandable-input" type="search" placeholder="Search" aria-label="Search" id="generativePrompt">
+                  <button class="btn btn-outline-success" id="generativeSubmit" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAI" aria-expanded="false" aria-controls="collapseAI">Search</button>
+                </form>
+              </li>
+              <li class="dropdown pt-2">
+                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <svg class="bi flex-shrink-0" width="24" height="24" ><use xlink:href="#people-circle"/></svg>
                   <span id="userName"></span>
                 </a>
-                <ul class="dropdown-menu text-small">
+                <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                   <li><a class="dropdown-item" href="#">Profile</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -181,15 +183,31 @@
 
     <!-- Begin page content -->
     <main class="flex-shrink-0">
-      <div class="container" style="max-width:100%;">
-        <div class="qlik-embed-app" id="qlik-embed-predictive">
-          <qlik-embed
+      <div class="container">
+
+        <div class="container mt-4" id="icon-grid">
+          <div class="collapse alert alert-secondary alert-dismissible" id="collapseAI" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <span id="loaderAI" class="spinner-border" role="status" style="display:none;">
+              <span class="visually-hidden">Loading...</span>
+            </span>
+            <div class="row">
+              <div id="generativeContainerId"></div>
+              <!-- <button class="btn btn-outline-secondary" id="simulatedSubmit">Simulate a Prompt</button> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluide">
+          <div class="qlik-embed-app mt-4" id="qlik-embed-predictive">
+            <qlik-embed
               ui="classic/app"
               app-id="96d75270-ebef-4e94-93c5-2f9ea68c3958"
               sheet-id="d650b250-4a0c-4b57-8ab5-e93c8540e026"
               id="qe1"
-          >
-         </qlik-embed>
+            >
+          </qlik-embed>
+          </div>
         </div>
       </div>
     </main>
@@ -204,5 +222,6 @@
 
   <script src="qlik/common_qlik_embed.js"></script>
   <script type="module" src="qlik/qlikUser.js"></script>
+  <script type="module" src="qlik/qlikContentGeneration.js"></script>
 
 </html>

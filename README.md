@@ -21,6 +21,7 @@ ASSISTANT_ID="<assistant_id>"
 REDIRECT_URI="<redirect_uri>"
 FACTORY_AUTOMATION_ID="<factory_automation_id>",
 FACTORY_AUTOMATION_TOKEN="<factory_automation_token>"
+OPENAI_API_KEY="<open_api_key>"
 ```
 
 Change in index.html file
@@ -44,6 +45,14 @@ Change in index.html file
 ```html
   <qlik-embed ui="ai/assistant" assistant-id="{{ ASSISTANT_ID }}" appearance="qlik-light"></qlik-embed>
 ```
+
+#### Question with OpenAI
+
+- How looks like the activity of my factory? in 3 charts please
+- Which machine has the highest scrap rate?
+- Let's produce a dashboard with : The production over the time, the % of scrap per machine and the correlation between % of scrap and risk of failure 
+- do we see a correlation between the risk of failure and the scrap rate?
+- What is the age of the captain?
 
 #### Managing authO
 
