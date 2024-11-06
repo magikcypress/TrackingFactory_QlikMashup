@@ -377,14 +377,27 @@ p {
 }
 
 .qlik-embed-app {
-  position: relative;
+  /* position: relative;
   width: '100%';
   height: 800px;
   padding: 0px;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; */
   border: 0px solid #bbb;
   border-radius: 0px;
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2);
+}
+
+.qlik-embed-predictive {
+  height: 750px;
+  width: auto;
+  border: 1px solid #bbb;
+  margin-right: 15px;
+  margin-left: 15px;
+  flex-grow: 1;
+  position: relative;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
 }
 
 .qlik-embed-modal {
@@ -397,7 +410,7 @@ p {
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2);
 }
 
-.qlik-embed-modal-dashboard{
+.qlik-embed-modal-dashboard {
   position: relative;
   width: '100%';
   height: 700px;
@@ -415,6 +428,10 @@ p {
   border-radius: 0px;
   padding: 1em;
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2);
+}
+
+.qlik-embed-classic {
+  margin-top: 80px
 }
 
 .code-example {
