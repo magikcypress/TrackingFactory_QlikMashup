@@ -36,5 +36,12 @@
 
     });
 
+    const embeddedObject2 = document.getElementById("asData");
+    console.log(embeddedObject2);
+    const refApi2 = await embeddedObject.getRefApi();
+
+    const obj2 = await refApi2.getObject();
+    console.log(obj2)
+
 
 })();

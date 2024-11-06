@@ -92,6 +92,7 @@
                   ui="ai/assistant"
                   assistant-id="{{ ASSISTANT_ID }}"
                   appearance="qlik-light"
+                  id="asData"
                   >
                 </qlik-embed>
               </div>
@@ -185,7 +186,7 @@
         <div class="container" id="icon-grid">
           <div class="collapse alert alert-secondary alert-dismissible" id="collapseAI" role="alert">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <span id="loaderAI" class="spinner-border" role="status" style="display:none;">
+            <span id="loaderAI" class="spinner-border" role="status" style="display: none;">
               <span class="visually-hidden">Loading...</span>
             </span>
             <div class="row">
@@ -240,8 +241,8 @@
                           <button id="exportData" class="btn btn-outline-dark btn-sm" style="text-wrap: nowrap;">Data</button>
                       </div>
                       <div class="sub-container col-3">
-                      <!-- <div id="loader" class="loader" style="display:none;"></div> -->
-                        <div id="loader" class="spinner-border" role="status" style="display:none;">
+                      <!-- <div id="loader" class="loader d-none"></div> -->
+                        <div id="loader" class="spinner-border d-none" role="status">
                           <span class="visually-hidden">Loading...</span>
                         </div>
                       </div>
@@ -489,7 +490,7 @@
       </div>
     </footer>
 
-    <div class="qlik-embed-home" id="qlik-embed-container1" style="display:none;">
+    <div class="qlik-embed-home d-none" id="qlik-embed-container1">
       <qlik-embed
         ui="analytics/chart"
         app-id="{{ APP_ID }}"
@@ -509,6 +510,7 @@
   </body>
 
   <script src="qlik/qlikForm.js"></script>
+  <script src="qlik/qlikGetData.js"></script>
   <script type="module" src="qlik/qlikUser.js"></script>
   <script type="module" src="qlik/qlikExport.js"></script>
   <script type="module" src="qlik/qlikContentGeneration.js"></script>
