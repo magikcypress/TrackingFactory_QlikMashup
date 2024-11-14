@@ -2,7 +2,9 @@
 import dotenv from 'dotenv';
 dotenv.config({ path: '../../.env' });
 
-const openApiKey = process.env.OPENAI_API_KEY;
+const AiKey = process.env.AI_KEY;
+const AiUri = process.env.AI_URI;
+const AiModel = process.env.AI_MODEL;
 
 //=====  Generative call  ===============================================================
 
@@ -66,7 +68,7 @@ export default class qlikCallAI {
       |Work Shift               |The shift of the team working 24 on 24                                |                                         |
       |Production Month Year    |The month and Year of the Production                                  |                                         |
       |Vendor                   |Vendors of the machine                                                |                                         |
-      |Date of Production       |The date of production (day).										 |Do not cross with Production Month Year  |
+      |Date Of Production       |The date of production (day).										 |Do not cross with Production Month Year  |
 
       ## analyticsMeasure options
       Below the table of analyticsMeasure. First row is the header. Value to use and instructions on how to use them are given :
@@ -111,14 +113,14 @@ export default class qlikCallAI {
 
       // send the promt
       try {
-          const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          const response = await fetch(`${AiUri}`, {
               method: 'POST',
               headers: {
-                  'Authorization': `Bearer ${openApiKey}`,
+                  'Authorization': `Bearer ${AiKey}`,
                   'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                  model: 'gpt-4o-mini',
+                  model: `${AiModel}`,
                   messages: [{ role: 'user', content: prompt2Send }]
               })
           });

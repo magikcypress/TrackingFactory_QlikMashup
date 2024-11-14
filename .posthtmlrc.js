@@ -7,6 +7,11 @@ const webIntegrationId = process.env.WEB_INTEGRATION_ID;
 const oauthClientId = process.env.OAUTH_CLIENT_ID;
 const assistantId = process.env.ASSISTANT_ID;
 const redirectUri = process.env.REDIRECT_URI;
+const factoryAutomationId = process.env.FACTORY_AUTOMATION_ID;
+const factoryAutomationKey = process.env.FACTORY_AUTOMATION_KEY;
+const aiKey = process.env.AI_KEY;
+const aiUri = process.env.AI_URI;
+const aiModel = process.env.AI_MODEL;
 
 module.exports = {
   plugins: {
@@ -37,6 +42,21 @@ module.exports = {
         },
         "REDIRECT_URI": () => {
           return redirectUri;
+        },
+        "FACTORY_AUTOMATION_ID": () => {
+          return factoryAutomationId;
+        },
+        "FACTORY_AUTOMATION_KEY": () => {
+          return factoryAutomationKey;
+        },
+        "AI_KEY": () => {
+          return aiKey;
+        },
+        "AI_URI": () => {
+          return aiUri;
+        },
+        "AI_MODEL": () => {
+          return aiModel;
         }
       }
     }

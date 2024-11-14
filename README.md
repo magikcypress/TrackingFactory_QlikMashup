@@ -21,7 +21,9 @@ ASSISTANT_ID="<assistant_id>"
 REDIRECT_URI="<redirect_uri>"
 FACTORY_AUTOMATION_ID="<factory_automation_id>",
 FACTORY_AUTOMATION_TOKEN="<factory_automation_token>"
-OPENAI_API_KEY="<open_api_key>"
+AI_KEY="<ai_key>"
+AI_URI="<ai_url>"
+MONGODB_URI="<mongodb_uri>"
 ```
 
 Change in index.html file

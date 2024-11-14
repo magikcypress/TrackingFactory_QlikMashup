@@ -12,3 +12,8 @@ Oct 20, 2024
 - Update script embed, replace js script from html
 - Add .env file for secure config variable
 - Add user session top-right
+
+TODO
+
+- Mutual OpenAI & Mistral
+- Get information with LLM, suggest & Good Prompt

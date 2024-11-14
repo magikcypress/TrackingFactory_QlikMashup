@@ -36,7 +36,7 @@
   </head>
 
 
-  <body class="d-flex flex-column h-100">
+  <body class="d-flex flex-column h-100 bg-light">
 
     <!-- SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -181,6 +181,7 @@
 
     <main class="flex-shrink-0" >
       <div class="container" >
+
         <h1 class="pb-2"></h1>
 
         <div class="container" id="icon-grid">
@@ -242,7 +243,7 @@
                       </div>
                       <div class="sub-container col-3">
                       <!-- <div id="loader" class="loader d-none"></div> -->
-                        <div id="loader" class="spinner-border d-none" role="status">
+                        <div id="loader" class="spinner-border" role="status" style="display: none;">
                           <span class="visually-hidden">Loading...</span>
                         </div>
                       </div>
@@ -426,8 +427,8 @@
                       </div>
                       <div>
                         <br>
-                        <a  id="setTheTeam" class="btn btn-outline-secondary">Update from analytics</a>
-                        <a  id="factoryTaskAssignment" class="btn btn-primary">Create a task</a>
+                        <a id="setTheTeam" class="btn btn-outline-secondary">Update from analytics</a>
+                        <a id="factoryTaskAssignment" class="btn btn-primary">Create a task</a>
                       </div>
                     </div>
                 </div>
@@ -435,7 +436,7 @@
 
               <!-- Table -->
               <div class="col-sm-12" >
-                <h3 class="pb-3">Current Backlog</h3>
+                <h2 class="pb-2 border-bottom">Current Backlog</h2>
                 <table class="table table-striped" id="tasksTable">
                   <thead>
                     <tr>
@@ -509,7 +510,7 @@
 
   </body>
 
-  <script src="qlik/qlikForm.js"></script>
+  <script type="module" src="qlik/qlikForm.js"></script>
   <script src="qlik/qlikGetData.js"></script>
   <script type="module" src="qlik/qlikUser.js"></script>
   <script type="module" src="qlik/qlikExport.js"></script>
